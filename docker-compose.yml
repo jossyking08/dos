@@ -1,0 +1,41 @@
+version: '3.8'
+
+services:
+  django:
+    build: .
+    container_name: django_ddos_app
+    volumes:
+      - .:/app
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
+    networks:
+      - app_network
+    # Network capabilities needed for packet capture
+    cap_add:
+      - NET_ADMIN
+      - NET_RAW
+    # Use host network mode for packet capture
+    # NOTE: Using host network mode comes with security implications
+    # Only use in development or controlled environments
+    network_mode: "host"
+    
+  db:
+    image: postgres:13
+    container_name: django_db
+    environment:
+      - POSTGRES_DB=ddos_detection
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+    volumes:
+      - postgres_data:/var/lib/postgresql/data/
+    networks:
+      - app_network
+
+networks:
+  app_network:
+    driver: bridge
+
+volumes:
+  postgres_data:
