@@ -18,10 +18,10 @@ RUN apt-get update && apt-get install -y \
     && apt-get clean \
     && rm -rf /var/lib/apt/lists/*
 
-# Install Python 3.11.9 specifically
+# Install Python 3.11 from deadsnakes PPA without specifying exact version
 RUN add-apt-repository ppa:deadsnakes/ppa && \
     apt-get update && \
-    apt-get install -y python3.11=3.11.9* python3.11-dev=3.11.9* python3.11-distutils && \
+    apt-get install -y python3.11 python3.11-dev python3.11-distutils && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/* && \
     curl https://bootstrap.pypa.io/get-pip.py -o get-pip.py && \
