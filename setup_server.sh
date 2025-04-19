@@ -56,9 +56,6 @@ if ! id -u test12 &>/dev/null; then
 fi
 
 # Create project directory if it doesn't exist
-echo "Setting up project directory..."
-mkdir -p ~/django_app
-cd ~/django_app
 
 # Copy your requirements.txt here or create it
 # touch requirements.txt  # Uncomment and modify as needed
