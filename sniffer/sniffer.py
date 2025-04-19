@@ -172,7 +172,7 @@ def packet_callback(packet):
             probability = float(prediction[0][0])
 
             result = f"Flow {flow_key}: {'DDoS' if binary_pred else 'Benign'} (Probability: {probability:.4f})"
-            print(result)
+            # print(result)
             # logging.info(result)
 
             if binary_pred and packet[IP].src not in monitored_ips:
