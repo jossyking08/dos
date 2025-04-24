@@ -30,8 +30,8 @@ DEBUG = True
 ALLOWED_HOSTS = [
      'localhost',
     '127.0.0.1',
-    'ec2-16-170-237-116.eu-north-1.compute.amazonaws.com',
-    '16.170.237.116',  # Optional: Add the IP address too
+    'ec2-13-61-1-104.eu-north-1.compute.amazonaws.com',
+    '13.61.1.104',  # Optional: Add the IP address too
 ]
 
 
