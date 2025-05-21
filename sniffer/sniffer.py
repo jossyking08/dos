@@ -191,7 +191,7 @@ def packet_callback(packet):
 def start_sniffer():
     print("Sniffer started! Listening for packets...")
     try:
-        sniff(iface='eth0', prn=packet_callback, store=0)
+        sniff(iface='enX0', prn=packet_callback, store=0)
     except Exception as e:
         logging.error(f"Error in sniffer: {str(e)}")
         time.sleep(1)
